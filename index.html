@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <div class="wrap-box">
+        <div class="top-nav">
+            <div class="left-menu">
+                <img src="./images/uoa-logo.jpg" alt="logo">
+                <a href="javascript:;">Log in</a>
+                <a href="javascript:;">Menu</a>
+                <a href="javascript:;">About us</a>
+                <button class="btn">Project</button>
+            </div>
+            <div class="search-wrap">
+                <div>
+                    <input type="text" placeholder="Search Projects">
+                    <img src="./images/Search.svg" alt="Search">
+                </div>
+            </div>
+        </div>
+        <div class="content-box">
+            <div class="title-box">
+                <p><span>Welcome</span> to the capstone course showroom</p>
+                <p class="text">of computer science</p>
+            </div>
+            <div class="content">
+                <img src="./images/双引号（左）.svg" alt="" class="img1">
+                <p>
+                    Our graduates are well prepared for <br>
+                    the challenges of the dynamic and <br>
+                    fast growing software industry and <br>
+                    are very well received by industry 
+                    employers.
+                </p>
+                <img src="./images/双引号（右）.svg" alt="" class="img2">
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    let btn = document.querySelector('.btn')
+    
+    btn.addEventListener('click',()=>{
+        location.href = "./Projects.html"
+    })
+</script>
+</html>
