@@ -11,8 +11,9 @@
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/PJUpload.css">
     <!-- <script src="/vue/vue.js"></script> -->
+    <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="/vue/projects.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>Project Showcase</title>
     <link rel="icon" href="./images/uoa-logo.jpg" id="icon">  </link>
 </head>
@@ -21,10 +22,12 @@
         <section class="top-nav">
             <div class="left-menu col-md-8 ">
                 <img src="./images/uoa-logo.jpg" alt="logo">
-                <a href="javascript:;">Log in</a>
-                <a href="javascript:;">Menu</a>
+                
+                <a href="javascript:;">Home</a>
                 <a href="javascript:;">About us</a>
-                <button class="btn">Project</button>
+                <a href="./Projects.html"><button class="btn">Project</button></a>
+                <a href="javascript:;">Log in</a>            
+                
             </div>
             <div class="search-wrap">
                 <div>
@@ -46,7 +49,7 @@
                     <abbr title="required">*</abbr>
                     Project Name
                 </label>
-                <input type="text" id="pj_name"> </input>
+                <input type="text" id="pj_name" v-model="pj_name"> </input>
             </div>
 
             <div class="pjTagline">
@@ -54,7 +57,7 @@
                     <abbr title="required">*</abbr>
                     Short Tagline
                 </label>
-                <input type="text" id="pj_Tagline"> </input>
+                <input type="text" id="pj_Tagline" v-model="pj_Tagline"> </input>
             </div>
             
             <div class="pjTech">
@@ -62,7 +65,7 @@
                     <abbr title="required">*</abbr>
                     Built Technologies
                 </label>
-                <input type="text" id="pj_Tech"> </input>
+                <input type="text" id="pj_Tech" v-model="pj_Tech"> </input>
             </div>
 
             <div class="pjDesc">
@@ -70,7 +73,7 @@
                     <abbr title="required">*</abbr>
                     Project Description
                 </label>
-                <textarea type="text" id="pj_Desc"> </textarea>
+                <textarea type="text" id="pj_Desc" v-model="pj_Desc"> </textarea>
             </div>
 
             <div class="pjGallery">
@@ -86,12 +89,42 @@
             </div>
 
             <div class="pjAction">
-                <input type="submit" value="Save" id="pjSave" class="btn btn-success">
+                <input type="submit" value="Save" id="pjSave" class="btn btn-success" @click="postPj">
                 <input type="button" value="Cancel" class="btn btn-danger">
             </div>
-
-            
+ 
         </section>
+        <script>
+            Vue.createApp({
+                data(){
+                    return{
+                        pj_name:"",
+                        pj_Tagline:"",
+                        pj_Tech:"",
+                        pj_Desc:"" 
+                    }
+                },
+                methods:{
+                    postPj(){ 
+                        axios.post('project/uploadProject',{
+                            data:{
+                                pname:this.pj_name,
+                                shortTagline:this.pj_Tagline,
+                                planguage:this.pj_Tech,
+                                introduction:this.pj_Desc
+                            }
+                            
+                        })
+                        .then(function (response) {
+                            console.log(response);
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                    }
+                }
+            }).mount('.content')
+        </script>
         
     </main>
     <footer>
