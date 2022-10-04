@@ -107,15 +107,16 @@
                 methods:{
                     postPj(){ 
                         axios.post('project/uploadProject',{
-                            data:{
-                                pname:this.pj_name,
-                                shortTagline:this.pj_Tagline,
-                                planguage:this.pj_Tech,
-                                introduction:this.pj_Desc
-                            }
-                            
-                        })
-                        .then(function (response) {
+	                        data:{
+	                            "pname":this.pj_name,
+                                "shortTagline":this.pj_Tagline,
+                                "planguage":this.pj_Tech,
+                                "introduction":this.pj_Desc
+                            },
+	                        headers: {
+                                'Content-Type': 'multipart/form-data'
+	                        }
+})                      .then(function (response) {
                             console.log(response);
                         })
                         .catch(function (error) {
@@ -152,3 +153,5 @@
     </footer>
 </body>
 </html>
+
+
