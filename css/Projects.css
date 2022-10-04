@@ -198,6 +198,7 @@ footer hr{
 .search-wrap{
     margin: 0 120px;
     border: none;
+    display: flex;
 }
 .search-wrap>div{
     width: 260px;
@@ -224,10 +225,28 @@ footer hr{
     right: 5px;
     transform: translate(-50%,-50%);
 }
-
 #space{
     display: none;
 }
+#signout{
+    display: none;
+    margin-left: 20px;
+}
+#signout .btn{
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    transition: background-color .5s;
+    cursor: pointer;
+    width: 100px;
+    height: 40px;
+    font-size: 14px;
+    background-color: lightcoral;
+}
+#signout .btn:hover{
+    background-color: red;
+}
+
 /* top-nav */
 
 #selectbar {
