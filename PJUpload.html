@@ -16,6 +16,9 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>Project Showcase</title>
     <link rel="icon" href="./images/uoa-logo.jpg" id="icon">  </link>
+    <script src="./js/wangEditor.js"></script>
+    <link href="./css/wangEditor.css" rel="stylesheet">
+    <script src="./js/loginstate.js"></script>
 </head>
 <body>
     <header>
@@ -26,7 +29,8 @@
                 <a href="javascript:;">Home</a>
                 <a href="javascript:;">About us</a>
                 <a href="./Projects.html"><button class="btn">Project</button></a>
-                <a href="javascript:;">Log in</a>            
+                <a href="./login.html" id="login">Log in</a>
+                <a href="./space.html" id="space">My Space</a>             
                 
             </div>
             <div class="search-wrap">
@@ -73,8 +77,13 @@
                     <abbr title="required">*</abbr>
                     Project Description
                 </label>
-                <textarea type="text" id="pj_Desc" v-model="pj_Desc"> </textarea>
+                <!-- <textarea type="text" id="pj_Desc" v-model="pj_Desc"> </textarea> -->
+                <div class="descText">
+                    <div id="editor-toolbar"></div>
+                    <div id="editor-text-area"></div>
+                </div>
             </div>
+            
 
             <div class="pjGallery">
                 <label for="pj_images">
@@ -100,23 +109,15 @@
                     return{
                         pj_name:"",
                         pj_Tagline:"",
-                        pj_Tech:"",
-                        pj_Desc:"" 
+                        pj_Tech:"",       
                     }
                 },
                 methods:{
                     postPj(){ 
-                        axios.post('project/uploadProject',{
-	                        data:{
-	                            "pname":this.pj_name,
-                                "shortTagline":this.pj_Tagline,
-                                "planguage":this.pj_Tech,
-                                "introduction":this.pj_Desc
-                            },
-	                        headers: {
-                                'Content-Type': 'multipart/form-data'
-	                        }
-})                      .then(function (response) {
+                        let intro = editor.getHtml();
+                        axios.post('project/uploadProject',
+                            "pname=" + this.pj_name +"&shortTagline=" + this.pj_Tagline +"&planguage=" + this.pj_Tech + "&introduction=" + intro
+	                        ).then(function (response) {
                             console.log(response);
                         })
                         .catch(function (error) {
@@ -125,8 +126,7 @@
                     }
                 }
             }).mount('.content')
-        </script>
-        
+        </script>   
     </main>
     <footer>
         <hr>
@@ -141,10 +141,10 @@
             </nav>
             <nav class="col-md-6">
                 <ul>
-                    <h4>Portfolio</h4>
-                    <li><a href="#">My projects</a></li>
-                    <li><a href="#">My homepage</a></li>
-                    <li><a href="#">Settings</a></li>
+                    <h4>Profile</h4>
+                    <li><a href="./PJDetial.html">My projects</a></li>
+                    <li><a href="./space.html">My homepage</a></li>
+                    <li><a href="./setting.html">Settings</a></li>
                 </ul>
             </nav>
         </section>
@@ -152,6 +152,56 @@
         <section id="legalBar"><p>&copy; 2022 Team19.&nbspAll rights reserved. </p></section>    
     </footer>
 </body>
+<script>
+    const E = window.wangEditor;
+
+
+
+    E.i18nChangeLanguage('en');
+
+
+
+    window.editor = E.createEditor({
+
+        selector: '#editor-text-area',
+
+        html: '<p><br></p>',
+
+        config: {
+
+            placeholder: 'Type here...',
+
+            MENU_CONF: {
+
+            }
+
+        }
+
+    });
+
+
+
+    window.toolbar = E.createToolbar({
+
+        editor,
+
+        selector: '#editor-toolbar',
+
+        config: {
+
+            excludeKeys : [
+
+                'uploadImage',
+
+                'uploadVideo'
+
+            ]
+
+        }
+
+    });
+    
+</script>
 </html>
 
 

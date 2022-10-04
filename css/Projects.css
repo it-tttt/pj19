@@ -224,6 +224,10 @@ footer hr{
     right: 5px;
     transform: translate(-50%,-50%);
 }
+
+#space{
+    display: none;
+}
 /* top-nav */
 
 #selectbar {

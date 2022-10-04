@@ -12,73 +12,16 @@
     <link rel="stylesheet" href="./css/Projects.css">
     <!-- <script src="/vue/vue.js"></script> -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="/vue/projects.js"></script>
+    <script src="./css/Projects.css"></script>
     <title>Project Showcase</title>
     <link rel="icon" href="./images/uoa-logo.jpg" id="icon">  </link>
+    <script src="./js/loginstate.js"></script>
 </head>
 <body>
     <div id="backtop">
         <a href="#top"><img src="./images/rocket.svg" alt="backtop"></a>
     </div>
     <header>
-        <!-- <section class="top">
-            <a href="https://www.auckland.ac.nz" class="logo"><img src="./images/uoa-logo.jpg" title="logo" class="logo"></a>
-            <nav>
-                <ul class="leftnav hidden-sm hidden-xs">           
-                    <li>
-                        <a href="#">HomePage</a>
-                    </li>
-                    <li>
-                        <a href="#">Projects </a>
-                        <span class="glyphicon glyphicon-menu-down"></span>
-                            <div>
-                            <ul>
-                                <li>
-                                    <a href=""><span>TYPE1</span></a>
-                                </li>
-                                <li>
-                                    <a href=""><span>TYPE2</span></a>
-                                </li>
-                                <li>
-                                    <a href=""><span>TYPE3</span></a>
-                                </li>
-                                <li>
-                                    <a href=""><span>TYPE4</span></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </nav>
-            <section class="search">
-                <form action="" method="get">
-                    <section class="hidden-sm hidden-xs">
-                    <input type="search" name="search" id="search" title="Search" placeholder="Search Projects" class="search-box ">
-                    <button type="submit" class="glyphicon glyphicon-search"></button>
-                    </section>
-                </form>
-            </section>
-            <nav>
-                <ul class="rightnav hidden-sm hidden-xs">
-                    <li>
-                        <a href="#">bablabalabal</a>
-                     </li>
-                    <li>
-                        <a href="#">bablabalabal</a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="login">
-                <ul>
-                    <li>
-                        <a type="button" class="btn btn-primary" href="#">Sign up</a>
-                    </li>
-                    <li>
-                        <a type="button" class="btn btn-success" href="#">Log in</a>
-                    </li> 
-                </ul>
-            </div>
-        </section> -->
         <section class="top-nav">
             <div class="left-menu col-md-8 ">
                 <img src="./images/uoa-logo.jpg" alt="logo">
@@ -86,7 +29,8 @@
                 <a href="javascript:;">Home</a>
                 <a href="javascript:;">About us</a>
                 <a href="./Projects.html"><button class="btn">Project</button></a>
-                <a href="javascript:;">Log in</a>
+                <a href="./login.html" id="login">Log in</a>
+                <a href="./space.html" id="space">My Space</a>
             </div>
             <div class="search-wrap">
                 <div>
@@ -352,10 +296,10 @@
             </nav>
             <nav class="col-md-6">
                 <ul>
-                    <h4>Portfolio</h4>
-                    <li><a href="#">My projects</a></li>
-                    <li><a href="#">My homepage</a></li>
-                    <li><a href="#">Settings</a></li>
+                    <h4>Profile</h4>
+                    <li><a href="./PJDetial.html">My projects</a></li>
+                    <li><a href="./space.html">My homepage</a></li>
+                    <li><a href="./setting.html">Settings</a></li>
                 </ul>
             </nav>
         </section>
