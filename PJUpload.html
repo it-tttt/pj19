@@ -19,6 +19,7 @@
     <script src="./js/wangEditor.js"></script>
     <link href="./css/wangEditor.css" rel="stylesheet">
     <script src="./js/loginstate.js"></script>
+    <script src="./js/imageUpload.js" defer></script>
 </head>
 <body>
     <header>
@@ -92,12 +93,19 @@
                     <abbr title="required"> &nbsp;&nbsp;</abbr>
                     Project Gallery
                 </label>
-                <span class="pjimgupload">
-                    <input value="" type="file" name="pj_images[data]" id="pj_images" accept="image/jpeg,image/jpg,image/pjpeg,image/png,image/x-png,image/gif" multiple>
-                    <p>Or drag or drop images here</p>
+                <span id="pjimgupload">
+                    <input type="file" onchange="showImages()" id="pj_images" accept="image/jpeg,image/jpg,image/pjpeg,image/png,image/x-png,image/gif" multiple>
+                    <!-- <p>Or drag or drop images here</p> -->
+                    <p id="feedback" style="color: red;"></p>
+                    <hr>
+                    <div id="images">
+                        
+                    </div>
+                    <input id="upimg" type="button" value="Upload images" class="btn btn-success" style="display: none; margin: 5px auto;" onclick="Uploadimg()">
                 </span>
                 
             </div>
+            
 
             <div class="pjAction">
                 <input type="submit" value="Save" id="pjSave" class="btn btn-success" @click="postPj">

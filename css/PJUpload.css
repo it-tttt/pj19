@@ -237,22 +237,33 @@ header{
     flex-direction: column;
 }
 
-.pjimgupload{
-    height: 100px;
+#pjimgupload{
+    min-height: 200px;
     border: 2px dashed black;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
 }
 
-.pjimgupload input[type=file]{
+#pjimgupload input[type=file]{
     width: 20%;
     margin: 0 auto; 
+    margin-top: 20px;
 }
 
-.pjimgupload p{
+#pjimgupload p{
     margin: 0 auto;
+}
+
+#images{
+    margin: 20px 10px;
+}
+
+#images img{
+    margin: 0 5px;
+    max-height: 100px;
+    max-width: 100px;
+    
 }
 
 .pjAction input[type=submit]{
