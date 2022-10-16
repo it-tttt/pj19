@@ -59,6 +59,7 @@
                 <div class="col-md-4" id="uploadcover">
                     <input type="file"  onchange="previewFile()" id="pj_cover" accept="image/jpeg,image/jpg,image/pjpeg,image/png,image/x-png,image/gif">
                     <img src="./images/uoa-logo.jpg" id="pjCoverimg"  alt="Image preview">
+                    <p id="size" style="color: red; display: none;">The size of project cover cannot larger than 2MB!</p>
                 </div>
     
             </div>
@@ -231,7 +232,7 @@
                             console.log(error);
                         });
                         alert("update Success!!");
-                        window.location.href = "./PJDetial.html?id="+pjId;
+                        window.location.href = "./PJDetail.html?id="+pjId;
                     },
                     getUrlParam(name) {
 
@@ -290,7 +291,7 @@
                     },
                     backPj(){
                         let pjId = this.getUrlParam("pid");
-                        window.location.href = "./PJDetial.html?id="+pjId;
+                        window.location.href = "./PJDetail.html?id="+pjId;
                     }
 
                 },
@@ -315,7 +316,7 @@
             <nav class="col-md-6">
                 <ul>
                     <h4>Profile</h4>
-                    <li><a href="./PJDetial.html">My projects</a></li>
+                    <li><a href="./PJDetail.html">My projects</a></li>
                     <li><a href="./space.html">My homepage</a></li>
                     <li><a href="./setting.html">Settings</a></li>
                 </ul>
