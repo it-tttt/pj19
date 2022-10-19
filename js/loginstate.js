@@ -60,7 +60,7 @@ function checkState(){
     
 }
 
-const loginList = ["https://api.crya.me/PJUpload.html","https://api.crya.me/space.html"];
+const loginList = ["https://api.crya.me/space.html"];
 
 window.onload = function(){
     var check = checkState();
